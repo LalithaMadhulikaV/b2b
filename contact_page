@@ -1,0 +1,78 @@
+import React,{useState} from 'react';
+import { TextField, Button } from '@mui/material'; // Import TextField and Button from MUI
+
+const ContactPage = () => {
+  const [review, setReview] = useState('');
+
+  const handleReviewChange = (event) => {
+    setReview(event.target.value);
+  };
+
+  const handleSubmitReview = (event) => {
+    event.preventDefault();
+    // You can handle the submission of the review here
+    console.log('Review submitted:', review);
+  };
+
+  const contactPageStyle = {
+    
+    backgroundImage: 'url(https://i.pinimg.com/564x/4a/0f/c5/4a0fc59d8adcd29141ecdaeb7916f65c.jpg)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    color: 'white', // You might want to adjust text color for better visibility
+    padding: '100px', // Add padding to your content
+  };
+
+  return (
+    <div style={contactPageStyle}>
+      <h1>Contact Us</h1>
+
+      <div>
+        {/* Address, phone, email, etc. go here */}
+        <p>MIG B-26, E Kakatiya Nagar Rd, Swamik Nagar, A. S. Rao Nagar, Secunderabad, Telangana 500062</p>
+        <p>Phone: +919963839890</p>
+        <p>Email: b2bhomedecor@gmail.com</p>
+      </div>
+
+      <h2>Want to write a review?</h2>
+      {/* Review Text Field */}
+      <form onSubmit={handleSubmitReview}>
+        <TextField
+          id="review"
+          label="Write your review"
+          multiline
+          rows={4}
+          fullWidth
+          variant="outlined"
+          value={review}
+          onChange={handleReviewChange}
+          required
+          style={{ marginBottom: '20px' }}
+        />
+
+        <Button type="submit" variant="contained" color="primary">
+          Submit Review
+        </Button>
+      </form>
+
+      {/* Location Map */}
+      <iframe
+        title="Location"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.678901234567!2d-0.12345678901234567!3d12.3456789012345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1234567890123456!2sYour%20Company!5e0!3m2!1sen!2sus!4v1637111111111!5m2!1sen!2sus"
+        width="500"
+        height="300"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  );
+};
+      <form action="/submit-contact" method="POST">
+        {/* Form fields go here */}
+        {/* ... (your form fields) */}
+        <button type="submit">Submit</button>
+      </form>
+
+export default ContactPage;
